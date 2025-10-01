@@ -1,19 +1,189 @@
-import Navbar from "../nav/nav";
-function Home() {
+import { useState, useEffect } from "react";
+
+const Home = () => {
+  // State for the first image slider
+  const [currentSlide1, setCurrentSlide1] = useState(0);
+  const slides1 = [
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+  ];
+
+  // State for the second image slider
+  const [currentSlide2, setCurrentSlide2] = useState(0);
+  const slides2 = [
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+  ];
+
+  // Auto-slide functionality for both sliders
+  useEffect(() => {
+    const timer1 = setInterval(() => {
+      setCurrentSlide1((prev) => (prev + 1) % slides1.length);
+    }, 3000);
+
+    const timer2 = setInterval(() => {
+      setCurrentSlide2((prev) => (prev + 1) % slides2.length);
+    }, 4000);
+
+    return () => {
+      clearInterval(timer1);
+      clearInterval(timer2);
+    };
+  }, [slides1.length, slides2.length]);
+
   return (
-    <>
-      <main className="pt-28 bg-black">
-        <section className="max-w-4xl mx-auto text-center py-40">
-          <h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg">
-            Fine dining under the stars
-          </h1>
-          <p className="mt-6 text-white/90 max-w-2xl mx-auto">
-            Seasonal tasting menu · Open Wed–Sun · Walk-ins & reservations
-          </p>
-        </section>
-      </main>
-    </>
+    <div className="min-h-screen bg-black p-6">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex flex-col lg:flex-row gap-6">
+          {/* Left Column - 3 divs */}
+          <div className="lg:w-2/5 space-y-6">
+            {/* Contacts Section */}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                Contact Us
+              </h2>
+              <div className="space-y-3">
+                <p className="flex items-center text-gray-600">
+                  <span className="font-semibold w-24">
+                    Contact & Réservations:
+                  </span>
+                  +33 7 52 08 14 49
+                </p>
+                <p className="flex items-center text-gray-600">
+                  <span className="font-semibold w-24">Email:</span>
+                  soulkitchen.restos@gmail.com
+                </p>
+                <p className="flex items-center text-gray-600">
+                  <span className="font-semibold w-24">Address:</span>
+                  59 Avenue Maurice Bourgès-Maunoury 31200 Toulouse
+                </p>
+              </div>
+            </div>
+
+            {/* Map Section */}
+            <div className="bg-white rounded-lg shadow-md p-2">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                Our Location
+              </h2>
+              <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.4097113193557!2d1.4494447757708906!3d43.6396434533082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aea35ac292ed7d%3A0xb1495ed090a16250!2s59%20Av.%20Maurice%20Bourg%C3%A8s-Maunoury%2C%2031200%20Toulouse!5e0!3m2!1sen!2sfr!4v1759327528881!5m2!1sen!2sfr"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Store Location"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Hours Section */}
+            <div className="bg-white rounded-lg shadow-md p-6">
+              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+                Horaires
+              </h2>
+              <div className="space-y-2">
+                {[
+                  { day: "Lundi", hours: "Fermé" },
+                  {
+                    day: "Mardi/Mercredi/Jeudi/Dimanche",
+                    hours: "11h00 - 21h30",
+                  },
+                  { day: "Vendredi", hours: "11h00 - 22h30" },
+                  { day: "Samedi", hours: "14h30 - 22h30" },
+                ].map((schedule, index) => (
+                  <div
+                    key={index}
+                    className="flex justify-between py-2 border-b border-gray-100"
+                  >
+                    <span className="font-medium text-gray-700">
+                      {schedule.day}
+                    </span>
+                    <span className="text-gray-600">{schedule.hours}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - 2 image sliders */}
+          <div className="lg:w-3/5 space-y-6">
+            {/* First Image Slider */}
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
+                Store Gallery
+              </h2>
+              <div className="relative overflow-hidden rounded-lg aspect-video">
+                {slides1.map((slide, index) => (
+                  <div
+                    key={index}
+                    className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+                      index === currentSlide1 ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <img
+                      src={slide}
+                      alt={`Store gallery ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {slides1.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`w-3 h-3 rounded-full ${
+                        index === currentSlide1 ? "bg-white" : "bg-white/50"
+                      }`}
+                      onClick={() => setCurrentSlide1(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Second Image Slider */}
+            <div className="bg-white rounded-lg shadow-md p-4">
+              <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
+                Products
+              </h2>
+              <div className="relative overflow-hidden rounded-lg aspect-video">
+                {slides2.map((slide, index) => (
+                  <div
+                    key={index}
+                    className={`absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
+                      index === currentSlide2 ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    <img
+                      src={slide}
+                      alt={`Product ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                  {slides2.map((_, index) => (
+                    <button
+                      key={index}
+                      className={`w-3 h-3 rounded-full ${
+                        index === currentSlide2 ? "bg-white" : "bg-white/50"
+                      }`}
+                      onClick={() => setCurrentSlide2(index)}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   );
-}
+};
 
 export default Home;
