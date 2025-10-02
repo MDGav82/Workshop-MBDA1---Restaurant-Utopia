@@ -63,7 +63,7 @@ const AllMenus = () => {
   };
 
   return (
-    <div className="min-h-screen pt-28 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen pt-45 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">

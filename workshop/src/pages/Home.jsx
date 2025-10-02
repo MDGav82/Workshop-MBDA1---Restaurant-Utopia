@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { Calendar, Phone, Sparkles } from "lucide-react";
 import AllMenus from "./Menu";
 
 const Home = () => {
+  const navigate = useNavigate();
+  
   // State for the first image slider
   const [currentSlide1, setCurrentSlide1] = useState(0);
   const slides1 = [
@@ -47,7 +51,7 @@ const Home = () => {
   }, [slides1.length, slides2.length]);
 
   return (
-    <div className="min-h-screen bg-[#fff] p-6 pt-25">
+    <div className="min-h-screen bg-[#fff] p-6 pt-45">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Left Column - 3 divs */}
@@ -192,8 +196,64 @@ const Home = () => {
             </div>
           </div>
         </div>
+
+        {/* Animated Reservation Button Section */}
+        <div className="mt-12 text-center">
+          <div className="bg-gradient-to-r from-[#872E1E] via-[#a53527] to-[#872E1E] p-8  shadow-2xl relative overflow-hidden">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-yellow-400 to-pink-400 rounded-full animate-pulse"></div>
+              <div className="absolute bottom-0 right-0 w-24 h-24 bg-gradient-to-br from-pink-400 to-purple-400 rounded-full animate-bounce"></div>
+              <div className="absolute top-1/2 left-1/3 w-16 h-16 bg-gradient-to-br from-blue-400 to-green-400 rounded-full animate-ping"></div>
+            </div>
+            
+            <div className="relative z-10">
+              <div className="flex items-center justify-center mb-4">
+                <Sparkles className="w-8 h-8 text-yellow-300 mr-2 animate-spin" />
+                <h2 className="text-3xl md:text-4xl font-bold text-white">
+                  Réservez Votre Table
+                </h2>
+                <Sparkles className="w-8 h-8 text-yellow-300 ml-2 animate-spin" />
+              </div>
+              
+              <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+                Vivez une expérience culinaire exceptionnelle dans notre restaurant. 
+                Réservez dès maintenant pour garantir votre place !
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <button
+                  onClick={() => navigate('/reservations')}
+                  className="group relative px-8 py-4 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-[#872E1E] font-bold text-lg rounded-full shadow-lg transform transition-all duration-300 hover:scale-110 hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-yellow-300 animate-pulse hover:animate-none overflow-hidden"
+                >
+                  <span className="absolute inset-0 bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-full"></span>
+                  <span className="relative flex items-center">
+                    <Calendar className="w-6 h-6 mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                    Réserver Maintenant
+                    <span className="ml-2 group-hover:translate-x-1 transition-transform duration-300">→</span>
+                  </span>
+                </button>
+                
+                <div className="flex items-center text-white/80">
+                  <Phone className="w-5 h-5 mr-2 animate-bounce" />
+                  <span className="text-sm">ou appelez: +33 7 52 08 14 49</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Floating animation elements */}
+            <style jsx>{`
+              @keyframes float {
+                0%, 100% { transform: translateY(0px); }
+                50% { transform: translateY(-10px); }
+              }
+              .animate-float {
+                animation: float 3s ease-in-out infinite;
+              }
+            `}</style>
+          </div>
+        </div>
       </div>
-      <AllMenus></AllMenus>
     </div>
   );
 };
