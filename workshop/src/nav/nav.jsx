@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Instagram, Phone, Facebook } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ logoText = "Utopia ", bgImage }) {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -19,7 +20,7 @@ export default function Navbar({ logoText = "Utopia ", bgImage }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <a href="#" className="flex items-center gap-3">
+            <Link to="/" className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/10">
                 <img
                   src="src\assets\imagelocal\LOGO-Restaurant-Utopia-Borderouge2-768x436.png"
@@ -29,16 +30,16 @@ export default function Navbar({ logoText = "Utopia ", bgImage }) {
               <span className="text-white font-semibold tracking-wide">
                 {logoText}
               </span>
-            </a>
+            </Link>
 
             {/* Desktop links */}
             <div className="hidden md:flex md:items-center md:gap-6">
-              <a
-                href="#menu"
+              <Link
+                to="/menu"
                 className="text-white/90 hover:text-white transition"
               >
                 Menu
-              </a>
+              </Link>
               <a
                 href="#about"
                 className="text-white/80 hover:text-white transition"
@@ -90,7 +91,7 @@ export default function Navbar({ logoText = "Utopia ", bgImage }) {
                   <Phone className="w-5 h-5" />
                 </a>
                 <a
-                  href="#"
+                  href="https://www.facebook.com/profile.php?id=61550992137450"
                   className="p-2 rounded-md bg-white/10 hover:bg-white/20 transition"
                   aria-label="Facebook"
                 >

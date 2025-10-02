@@ -55,7 +55,7 @@ const Home = () => {
             {/* Contacts Section */}
             <div className="bg-[#F8F0ED]  shadow-md p-6">
               <h2 className="text-2xl font-bold mb-4 text-[#872E1E]">
-                Contact Us
+                Contactez-nous
               </h2>
               <div className="space-y-3">
                 <p className="flex items-center text-gray-800">
@@ -82,7 +82,7 @@ const Home = () => {
             {/* Map Section */}
             <div className="bg-[#F8F0ED] shadow-md p-2">
               <h2 className="text-2xl font-bold mb-4 text-[#872E1E]">
-                Our Location
+                Notre Location
               </h2>
               <div className="aspect-video bg-gray-200 overflow-hidden">
                 <iframe

@@ -11,11 +11,10 @@ const AllMenus = () => {
       id: 1,
       title: "Jour",
       subtitle: "Morning Delights",
-      time: "6:00 AM - 11:00 AM",
+      time: "12:00 - 14:00",
       description:
         "manger les burgers yammy yammy manger le s pizzas yammyyammy hello HAHAH",
-      image:
-        "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      image: "src/assets/imagefood/image8.jpg",
       color: "from-orange-400 to-amber-500",
       icon: "☀️",
       pdfUrl: "../assets/pdfmenus/pour-menu-jour.pdf",
@@ -24,26 +23,24 @@ const AllMenus = () => {
       id: 2,
       title: "Brunch",
       subtitle: "Midday Indulgence",
-      time: "11:00 AM - 3:00 PM",
+      time: "14:00 - 18:00",
       description:
         "Mélange parfait du petit déjeuner et du déjeuner avec des cocktails, des salades.",
-      image:
-        "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      image: "src/assets/imagefood/image10.jpg",
       color: "from-emerald-400 to-teal-500",
-      icon: "🥂",
+      icon: "🧇🥐☕",
       pdfUrl: "../assets/pdfmenus/pour-menu-brunch.pdf",
     },
     {
       id: 3,
       title: "Soir",
       subtitle: "Evening Excellence",
-      time: "5:00 PM - 11:00 PM",
+      time: "18:45 - 21:00",
       description:
         "Notre menu de dîner sélectionné par le chef, nos vins fins et nos desserts.",
-      image:
-        "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      image: "src/assets/imagefood/image13.jpg",
       color: "from-purple-500 to-indigo-600",
-      icon: "🌙",
+      icon: "🍽️🥂🍝👩🏻‍🍳",
       pdfUrl: "../assets/pdfmenus/pour-menu-soir.pdf",
     },
   ];
@@ -74,8 +71,8 @@ const AllMenus = () => {
             Notre menu
           </h1>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Discover our carefully crafted menus for every occasion. Each dish
-            tells a story of passion and quality ingredients.
+            Découvrez nos menus soigneusement élaborés pour chaque occasion.
+            Chaque plat raconte une histoire de passion et de qualité.
           </p>
           <div className="w-24 h-1 bg-[#872E1E] mx-auto mt-6 rounded-full"></div>
         </div>
@@ -131,7 +128,7 @@ const AllMenus = () => {
                     className="flex-1 bg-[#872E1E] text-white py-3 px-6 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5 text-center"
                     onClick={() => handleCardClick(menu.id)}
                   >
-                    View Full Menu
+                    Voir le menu complet
                   </button>
 
                   {/* Download Button */}
