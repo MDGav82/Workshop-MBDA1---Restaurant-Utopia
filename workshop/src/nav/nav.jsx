@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Instagram, Phone, Facebook } from "lucide-react";
 
-export default function Navbar({ logoText = "Luna & Co.", bgImage }) {
+export default function Navbar({ logoText = "Utopia ", bgImage }) {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
@@ -13,43 +13,18 @@ export default function Navbar({ logoText = "Luna & Co.", bgImage }) {
   }, []);
 
   return (
-    <div
-      className="bg-cover bg-center  max-h-0.5"
-      style={{
-        backgroundImage:
-          bgImage ||
-          "url('https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&s=')",
-      }}
-    >
+    <div className="bg-cover bg-center  max-h-0.5">
       {/* Navbar */}
-      <nav className="fixed inset-x-0 top-0 z-50">
+      <nav className="fixed inset-x-0 top-0 z-50 bg-[#872E1E]/80 ">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <a href="#" className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/10">
-                <svg
-                  className="w-7 h-7 text-white/90"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                  aria-hidden
-                >
-                  <circle
-                    cx="12"
-                    cy="12"
-                    r="8"
-                    stroke="currentColor"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M8 9c.5 1 1 2 4 2s3.5-1 4-2"
-                    stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <img
+                  src="src\assets\imagelocal\LOGO-Restaurant-Utopia-Borderouge2-768x436.png"
+                  alt=""
+                />
               </div>
               <span className="text-white font-semibold tracking-wide">
                 {logoText}
@@ -94,7 +69,7 @@ export default function Navbar({ logoText = "Luna & Co.", bgImage }) {
             <div className="flex items-center gap-3">
               <a
                 href="#reserve"
-                className="hidden md:inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gradient-to-r from-amber-400 to-rose-500 text-neutral-900 shadow-lg hover:scale-105 transform transition"
+                className="hidden md:inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-[#6A2519] text-white shadow-lg hover:scale-105 transform transition"
               >
                 Reserve
               </a>

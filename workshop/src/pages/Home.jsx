@@ -5,9 +5,11 @@ const Home = () => {
   // State for the first image slider
   const [currentSlide1, setCurrentSlide1] = useState(0);
   const slides1 = [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+    "src/assets/imagelocal/image1.jpg",
+    "src/assets/imagelocal/image2.jpg",
+    " src/assets/imagelocal/image3.jpg",
+    "src/assets/imagelocal/image4.jpg",
+    "src/assets/imagelocal/image5.jpg",
   ];
 
   // State for the second image slider
@@ -35,40 +37,44 @@ const Home = () => {
   }, [slides1.length, slides2.length]);
 
   return (
-    <div className="min-h-screen bg-black p-6 pt-18">
+    <div className="min-h-screen bg-[#fff] p-6 pt-25">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Left Column - 3 divs */}
           <div className="lg:w-2/5 space-y-6">
             {/* Contacts Section */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+            <div className="bg-[#F8F0ED]  shadow-md p-6">
+              <h2 className="text-2xl font-bold mb-4 text-[#872E1E]">
                 Contact Us
               </h2>
               <div className="space-y-3">
-                <p className="flex items-center text-gray-600">
-                  <span className="font-semibold w-24">
+                <p className="flex items-center text-gray-800">
+                  <span className="font-semibold w-24 text-[#872E1E]">
                     Contact & Réservations:
                   </span>
                   +33 7 52 08 14 49
                 </p>
-                <p className="flex items-center text-gray-600">
-                  <span className="font-semibold w-24">Email:</span>
+                <p className="flex items-center text-gray-800">
+                  <span className="font-semibold w-24 text-[#872E1E]">
+                    Email:
+                  </span>
                   soulkitchen.restos@gmail.com
                 </p>
-                <p className="flex items-center text-gray-600">
-                  <span className="font-semibold w-24">Address:</span>
+                <p className="flex items-center text-gray-800">
+                  <span className="font-semibold w-24 text-[#872E1E]">
+                    Address:
+                  </span>
                   59 Avenue Maurice Bourgès-Maunoury 31200 Toulouse
                 </p>
               </div>
             </div>
 
             {/* Map Section */}
-            <div className="bg-white rounded-lg shadow-md p-2">
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+            <div className="bg-[#F8F0ED] shadow-md p-2">
+              <h2 className="text-2xl font-bold mb-4 text-[#872E1E]">
                 Our Location
               </h2>
-              <div className="aspect-video bg-gray-200 rounded-lg overflow-hidden">
+              <div className="aspect-video bg-gray-200 overflow-hidden">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2887.4097113193557!2d1.4494447757708906!3d43.6396434533082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12aea35ac292ed7d%3A0xb1495ed090a16250!2s59%20Av.%20Maurice%20Bourg%C3%A8s-Maunoury%2C%2031200%20Toulouse!5e0!3m2!1sen!2sfr!4v1759327528881!5m2!1sen!2sfr"
                   width="100%"
@@ -83,8 +89,8 @@ const Home = () => {
             </div>
 
             {/* Hours Section */}
-            <div className="bg-white rounded-lg shadow-md p-6">
-              <h2 className="text-2xl font-bold mb-4 text-gray-800">
+            <div className="bg-[#F8F0ED] shadow-md p-6">
+              <h2 className="text-2xl font-bold mb-4 text-[#872E1E]">
                 Horaires
               </h2>
               <div className="space-y-2">
@@ -112,13 +118,10 @@ const Home = () => {
           </div>
 
           {/* Right Column - 2 image sliders */}
-          <div className="lg:w-3/5 space-y-6">
+          <div className="lg:w-3/5 space-y-15">
             {/* First Image Slider */}
-            <div className="bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
-                Store Gallery
-              </h2>
-              <div className="relative overflow-hidden rounded-lg aspect-video">
+            <div className="bg-[#F8F0ED] shadow-md ">
+              <div className="relative overflow-hidden  aspect-video">
                 {slides1.map((slide, index) => (
                   <div
                     key={index}
@@ -148,11 +151,8 @@ const Home = () => {
             </div>
 
             {/* Second Image Slider */}
-            <div className="bg-white rounded-lg shadow-md p-4">
-              <h2 className="text-2xl font-bold mb-4 text-center text-gray-800">
-                Products
-              </h2>
-              <div className="relative overflow-hidden rounded-lg aspect-video">
+            <div className="bg-white shadow-md">
+              <div className="relative overflow-hidden aspect-video">
                 {slides2.map((slide, index) => (
                   <div
                     key={index}
