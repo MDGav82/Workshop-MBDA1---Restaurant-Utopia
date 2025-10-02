@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import AllMenus from "./Menu";
 
 const Home = () => {
   // State for the first image slider
@@ -34,7 +35,7 @@ const Home = () => {
   }, [slides1.length, slides2.length]);
 
   return (
-    <div className="min-h-screen bg-black p-6">
+    <div className="min-h-screen bg-black p-6 pt-18">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row gap-6">
           {/* Left Column - 3 divs */}
@@ -182,6 +183,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <AllMenus></AllMenus>
     </div>
   );
 };
