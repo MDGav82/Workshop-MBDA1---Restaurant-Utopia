@@ -1,0 +1,172 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
+const AllMenus = () => {
+  const [activeCard, setActiveCard] = useState(null);
+  const navigate = useNavigate();
+
+  const menuSections = [
+    {
+      id: 1,
+      title: "Jour",
+      subtitle: "Morning Delights",
+      time: "6:00 AM - 11:00 AM",
+      description:
+        "manger les burgers yammy yammy manger le s pizzas yammyyammy hello HAHAH",
+      image:
+        "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      color: "from-orange-400 to-amber-500",
+      icon: "☀️",
+      pdfUrl: "/menus/breakfast-menu.pdf",
+    },
+    {
+      id: 2,
+      title: "Branch",
+      subtitle: "Midday Indulgence",
+      time: "11:00 AM - 3:00 PM",
+      description:
+        "Mélange parfait du petit déjeuner et du déjeuner avec des cocktails, des salades.",
+      image:
+        "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      color: "from-emerald-400 to-teal-500",
+      icon: "🥂",
+      pdfUrl: "/menus/brunch-menu.pdf",
+    },
+    {
+      id: 3,
+      title: "Soir",
+      subtitle: "Evening Excellence",
+      time: "5:00 PM - 11:00 PM",
+      description:
+        "Notre menu de dîner sélectionné par le chef, nos vins fins et nos desserts.",
+      image:
+        "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+      color: "from-purple-500 to-indigo-600",
+      icon: "🌙",
+      pdfUrl: "/menus/dinner-menu.pdf",
+    },
+  ];
+
+  const handleCardClick = (menuId) => {
+    // In a real app, this would navigate to the actual menu page
+    console.log(`Navigating to ${menuId} menu page`);
+    // Example: navigate(`/menu/${menuId}`);
+    navigate(`/${menuId}`);
+    // Reset active card after animation
+    setTimeout(() => setActiveCard(null), 300);
+  };
+
+  const handleDownload = (e, pdfUrl) => {
+    e.stopPropagation(); // Prevent card click when downloading
+    // In a real app, this would trigger the PDF download
+    console.log(`Downloading ${pdfUrl}`);
+    // Example: window.open(pdfUrl, '_blank');
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            Our Menu
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            Discover our carefully crafted menus for every occasion. Each dish
+            tells a story of passion and quality ingredients.
+          </p>
+          <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto mt-6 rounded-full"></div>
+        </div>
+
+        {/* Menu Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {menuSections.map((menu) => (
+            <div
+              key={menu.id}
+              className={`group relative bg-white rounded-2xl shadow-xl overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl ${
+                activeCard === menu.id ? "scale-95" : ""
+              }`}
+              onClick={() => handleCardClick(menu.title)}
+            >
+              {/* Background Image with Gradient Overlay */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={menu.image}
+                  alt={menu.title}
+                  className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                />
+                <div
+                  className={`absolute inset-0 bg-gradient-to-br ${menu.color} opacity-80 mix-blend-multiply`}
+                ></div>
+
+                {/* Icon and Title Overlay */}
+                <div className="absolute top-4 left-4">
+                  <span className="text-3xl">{menu.icon}</span>
+                </div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-2xl font-bold">{menu.title}</h3>
+                  <p className="text-white/90 font-medium">{menu.subtitle}</p>
+                </div>
+              </div>
+
+              {/* Content */}
+              <div className="p-6">
+                {/* Time Badge */}
+                <div className="inline-flex items-center px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-sm font-medium mb-4">
+                  <span className="w-2 h-2 bg-green-400 rounded-full mr-2"></span>
+                  {menu.time}
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  {menu.description}
+                </p>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-3">
+                  {/* View Menu Button */}
+                  <button
+                    className="flex-1 bg-gradient-to-r from-gray-800 to-gray-900 text-white py-3 px-6 rounded-lg font-semibold transition-all duration-200 hover:shadow-lg transform hover:-translate-y-0.5 text-center"
+                    onClick={() => handleCardClick(menu.id)}
+                  >
+                    View Full Menu
+                  </button>
+
+                  {/* Download Button */}
+                  <button
+                    onClick={(e) => handleDownload(e, menu.pdfUrl)}
+                    className="flex items-center justify-center gap-2 bg-white border-2 border-gray-200 text-gray-700 py-3 px-4 rounded-lg font-semibold transition-all duration-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-lg"
+                  >
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                      />
+                    </svg>
+                    PDF
+                  </button>
+                </div>
+              </div>
+
+              {/* Hover Effect Border */}
+              <div
+                className={`absolute inset-0 rounded-2xl border-2 border-transparent bg-gradient-to-r ${menu.color} opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10`}
+              >
+                <div className="absolute inset-[2px] rounded-2xl bg-white z-10"></div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default AllMenus;
