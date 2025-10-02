@@ -31,7 +31,7 @@ const AllMenus = () => {
         "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
       color: "from-emerald-400 to-teal-500",
       icon: "🥂",
-      pdfUrl: "/menus/brunch-menu.pdf",
+      pdfUrl: "../assets/pdfmenus/pour-menu-brunch.pdf",
     },
     {
       id: 3,
@@ -44,7 +44,7 @@ const AllMenus = () => {
         "https://images.unsplash.com/photo-1546833999-b9f581a1996d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
       color: "from-purple-500 to-indigo-600",
       icon: "🌙",
-      pdfUrl: "/menus/dinner-menu.pdf",
+      pdfUrl: "../assets/pdfmenus/pour-menu-soir.pdf",
     },
   ];
 

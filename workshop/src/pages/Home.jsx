@@ -10,14 +10,24 @@ const Home = () => {
     " src/assets/imagelocal/image3.jpg",
     "src/assets/imagelocal/image4.jpg",
     "src/assets/imagelocal/image5.jpg",
+    "src/assets/imagelocal/image6.jpg",
   ];
 
   // State for the second image slider
   const [currentSlide2, setCurrentSlide2] = useState(0);
   const slides2 = [
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
-    "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80",
+    "src/assets/imagefood/image1.jpg",
+    "src/assets/imagefood/image2.jpg",
+    "src/assets/imagefood/image3.jpg",
+    "src/assets/imagefood/image4.jpg",
+    "src/assets/imagefood/image5.jpg",
+    "src/assets/imagefood/image6.jpg",
+    "src/assets/imagefood/image7.jpg",
+    "src/assets/imagefood/image8.jpg",
+    "src/assets/imagefood/image9.jpg",
+    "src/assets/imagefood/image10.jpg",
+    "src/assets/imagefood/image11.jpg",
+    "src/assets/imagefood/image12.jpg",
   ];
 
   // Auto-slide functionality for both sliders

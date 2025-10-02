@@ -17,7 +17,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Jour" element={<Jour />} />
-          <Route path="/Branch" element={<Branch />} />
+          <Route path="/Brunch" element={<Branch />} />
           <Route path="/Soir" element={<Soir />} />
         </Routes>
       </BrowserRouter>
