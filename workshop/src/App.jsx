@@ -4,23 +4,28 @@ import AllMenus from "./pages/Menu";
 import Jour from "./pages/Jour";
 import Branch from "./pages/Branch";
 import Soir from "./pages/Soir";
-
+import Reservations from "./pages/Reservations";
+import Navbar from "./layout/nav";
+import Footer from "./layout/Footer";
 import "./App.css";
-import Navbar from "./nav/nav";
+
 
 function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar></Navbar>
-        <Home></Home>
-        <AllMenus></AllMenus>
+        <Navbar />
+
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Jour" element={<Jour />} />
-          <Route path="/Branch" element={<Branch />} />
-          <Route path="/Soir" element={<Soir />} />
+          <Route path="/menu" element={<AllMenus />} />
+          <Route path="/jour" element={<Jour />} />
+          <Route path="/brunch" element={<Branch />} />
+          <Route path="/soir" element={<Soir />} />
+          <Route path="/reservations" element={<Reservations />} />
         </Routes>
+
+        <Footer />
       </BrowserRouter>
     </>
   );
